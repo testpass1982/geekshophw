@@ -1,0 +1,18 @@
+{
+        "product 1": {
+            "name": "Zoom Pegasus Turbo",
+            "manufacturer": "Nike",
+            "price": "150"
+        },
+        "product 2": {
+            "name": "EXP-X14",
+            "manufacturer": "Reebok",
+            "price": "170"
+        },
+        "product 3": {
+            "name": "RubberPress-200",
+            "manufacturer": "Adidas",
+            "price": "180"
+        }
+
+}

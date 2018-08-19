@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title%}
+		{{ title|title }}
+		{% endblock %}</title>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+</head>
+<body>
+	<div id="background">
+		<div id="page">
+			<div id="header">
+				<div id="logo">
+					<a href="/"><img src="/static/images/logo.png" alt="LOGO"></a>
+				</div>
+
+				{% include 'mainapp/menu.html' %}
+
+			</div>
+            {% block content %}
+            {% endblock %}
+			<div id="footer">
+				<div class="background">
+					<div id="connect">
+						<h5>Get Social With us!</h5>
+
+					</div>
+					<ul class="navigation">
+						<li>
+							<h5>Mens</h5>
+							<a href="/mens">Sneakers</a> <a href="/mens">Boots</a> <a href="/mens">Winter socks</a> <a href="/mens">Lace-ups</a>
+						</li>
+						<li>
+							<h5>Womens</h5>
+							<a href="/womens">Sneakers</a> <a href="/womens">Boots</a> <a href="/womens">Winter socks</a> <a href="/womens">Lace-ups</a>
+						</li>
+						<li class="latest">
+							<h5>New Arrivals</h5>
+							<a href="/new">Cheverlyn Zespax</a> <a href="/new">Alta Ulterior</a> <a href="/new">Mikee</a> <a href="/new">Jeeroks Copy</a>
+						</li>
+						<li class="latest">
+							<h5>On Sale Items</h5>
+							<a href="/sale">Cheverlyn Zespax</a> <a href="/sale">Alta Ulterior</a> <a href="/sale">Mikee</a> <a href="/sale">Jeeroks Copy</a>
+						</li>
+					</ul>
+					<p class="copy">Copyright &copy; 2018 &nbsp; Интернет-магазин обуви RubberNLaces</p>
+				</div><div class="container">
+<table align="center" border="0" cellpadding="0" cellspacing="0" style="height:75px; width:560px">
+	<tbody>
+		<tr>
+			<td style="height:75px; text-align:center; vertical-align:middle; width:560px">
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

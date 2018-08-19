@@ -1,50 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>RubberNLaces Website Template</title>
-	<link rel="stylesheet" href="/static/css/style.css" type="text/css">
-</head>
-<body>
-	<div id="background">
-		<div id="page">
-			<div id="header">
-				<div id="logo">
-					<a href="/"><img src="/static/images/logo.png" alt="LOGO"></a>
-				</div>
-				<div id="navigation">
-					<ul id="primary">
-						<li class="selected">
-							<a href="/">Home</a>
-						</li>
-						<li>
-							<a href="/new">New Arrivals</a>
-						</li>
-						<li>
-							<a href="/mens">Mens</a>
-						</li>
-						<li>
-							<a href="/womens">Womens</a>
-						</li>
-						<li>
-							<a href="/faq">Faq</a>
-						</li>
-						<li class="highlight">
-							<a href="/sale">Sale Items</a>
-						</li>
-					</ul>
-					<ul id="secondary">
-						<li>
-							<a href="/checkout">Cart</a>
-						</li>
-						<li>
-							<a href="/">Login</a> | <a href="/">Signup</a>
-						</li>
-					</ul>
-				</div>
-			</div>
+{% extends 'mainapp/base.html' %}
+
+{%block content %}
 			<div class="welcome">
-			<h2>Welcome to our rubbernlaces e-shop </h2>
+			<h2>Welcome to our rubbernlaces e-shop, 
+				{% if user.first_name %} 
+					{{ user.first_name }} 
+				{% else %} Dear Guest! 
+				{%endif%} </h2>
+		
+			Today is {% now "jS F Y H:i" %} <br>
+			New products in our catalog: <br>
+		
+			{% for key, value in new_products.items %}
+				<li>{{key}} : <a href="#"> {{ value.name }}</a> by {{value.manufacturer}}, for only {{value.price}}</li>
+			{% endfor %}
+
 			<p>
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
 			</p>
@@ -121,43 +91,5 @@
 					</div>
 				</div>
 			</div>
-			<div id="footer">
-				<div class="background">
-					<div id="connect">
-						<h5>Get Social With us!</h5>
 
-					</div>
-					<ul class="navigation">
-						<li>
-							<h5>Mens</h5>
-							<a href="mens.html">Sneakers</a> <a href="mens.html">Boots</a> <a href="mens.html">Winter socks</a> <a href="mens.html">Lace-ups</a>
-						</li>
-						<li>
-							<h5>Womens</h5>
-							<a href="womens.html">Sneakers</a> <a href="womens.html">Boots</a> <a href="womens.html">Winter socks</a> <a href="womens.html">Lace-ups</a>
-						</li>
-						<li class="latest">
-							<h5>New Arrivals</h5>
-							<a href="new.html">Cheverlyn Zespax</a> <a href="new.html">Alta Ulterior</a> <a href="new.html">Mikee</a> <a href="new.html">Jeeroks Copy</a>
-						</li>
-						<li class="latest">
-							<h5>On Sale Items</h5>
-							<a href="sale.html">Cheverlyn Zespax</a> <a href="sale.html">Alta Ulterior</a> <a href="sale.html">Mikee</a> <a href="sale.html">Jeeroks Copy</a>
-						</li>
-					</ul>
-					<p class="copy">Copyright &copy; 2018 &nbsp; Интернет-магазин обуви RubberNLaces</p>
-				</div><div class="container">
-<table align="center" border="0" cellpadding="0" cellspacing="0" style="height:75px; width:560px">
-	<tbody>
-		<tr>
-			<td style="height:75px; text-align:center; vertical-align:middle; width:560px">
-			</td>
-		</tr>
-	</tbody>
-</table>
-</div>
-			</div>
-		</div>
-	</div>
-</body>
-</html>
+{% endblock %}

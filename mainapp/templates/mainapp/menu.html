@@ -1,0 +1,17 @@
+<div id="navigation">
+    <ul id="primary">
+        {% for link in links_menu %}
+            <li {% if request.resolver_match.url_name == link.href %} class="selected" {% endif %}>
+                <a href="{% url link.href %}">{{ link.name }}</a>
+            </li>
+        {% endfor %}
+    </ul> 
+    <ul id="secondary">
+        <li>
+            <a href="/checkout">Cart</a>
+        </li>
+        <li>
+            <a href="/login">Login</a> | <a href="/">Signup</a>
+        </li>
+    </ul>
+</div>
