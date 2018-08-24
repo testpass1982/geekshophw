@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import ProductCategory, Product
 import json, os
 
 with open('static/new_products.json', 'r', encoding='UTF-8') as p:
