@@ -5,30 +5,19 @@
 				<h4><span>Mens</span></h4>
 				<div id="stocks">
 					<ul>
+						{% for product in products %}
 						<li>
-							<a href="/product" class="preview" title="Preview"> <img src="/static/images/boots-brown.jpg" alt="Img"> <span class="icon"></span></a> <span>$8.50</span> Hukbalahap Boots <em>Quick Shop</em> <a href="checkout.php" class="btn-cart">Add to Cart</a> <a href="checkout.php" class="btn-wish">Add to Wishlist</a>
+						<!-- <h3> {{ product.category.name }}</h3>
+						<h2> {{ product.title }}</h2>	 -->
+							<a href="#" class='preview' title='Preview'> <img src='/media/{{ product.image }}' alt='{{product.title}}'> <span class="icon"></span></a> <span>$8.50</span> {{product.title}} <em>Quick Shop</em> <a href="checkout.php" class="btn-cart">Add to Cart</a> <a href="checkout.php" class="btn-wish">Add to Wishlist</a>
+							</a>
 						</li>
-						<li>
+							{% endfor %}
+
+						<!-- <li>
 							<a href="/product" class="preview" title="Preview"> <img src="/static/images/boots-violet.jpg" alt="Img"> <span class="icon"></span></a> <span>$8.50</span> Hukbalahap Boots <em>Quick Shop</em> <a href="checkout.php" class="btn-cart">Add to Cart</a> <a href="checkout.php" class="btn-wish">Add to Wishlist</a>
-						</li>
-						<li>
-							<a href="/product" class="preview" title="Preview"> <img src="/static/images/boots-yellow.jpg" alt="Img"> <span class="icon"></span></a> <span>$8.50</span> Hukbalahap Boots <em>Quick Shop</em> <a href="checkout.php" class="btn-cart">Add to Cart</a> <a href="checkout.php" class="btn-wish">Add to Wishlist</a>
-						</li>
-						<li>
-							<a href="/product" class="preview" title="Preview"> <img src="/static/images/boots-green.jpg" alt="Img"> <span class="icon"></span></a> <span>$8.50</span> Hukbalahap Boots <em>Quick Shop</em> <a href="checkout.php" class="btn-cart">Add to Cart</a> <a href="checkout.php" class="btn-wish">Add to Wishlist</a>
-						</li>
-						<li>
-							<a href="/product" class="preview" title="Preview"> <img src="/static/images/boots-brown.jpg" alt="Img"> <span class="icon"></span></a> <span>$8.50</span> Hukbalahap Boots <em>Quick Shop</em> <a href="checkout.php" class="btn-cart">Add to Cart</a> <a href="checkout.php" class="btn-wish">Add to Wishlist</a>
-						</li>
-						<li>
-							<a href="/product" class="preview" title="Preview"> <img src="/static/images/boots-violet.jpg" alt="Img"> <span class="icon"></span></a> <span>$8.50</span> Hukbalahap Boots <em>Quick Shop</em> <a href="checkout.php" class="btn-cart">Add to Cart</a> <a href="checkout.php" class="btn-wish">Add to Wishlist</a>
-						</li>
-						<li>
-							<a href="/product" class="preview" title="Preview"> <img src="/static/images/boots-yellow.jpg" alt="Img"> <span class="icon"></span></a> <span>$8.50</span> Hukbalahap Boots <em>Quick Shop</em> <a href="checkout.php" class="btn-cart">Add to Cart</a> <a href="checkout.php" class="btn-wish">Add to Wishlist</a>
-						</li>
-						<li>
-							<a href="/product" class="preview" title="Preview"> <img src="/static/images/boots-green.jpg" alt="Img"> <span class="icon"></span></a> <span>$8.50</span> Hukbalahap Boots <em>Quick Shop</em> <a href="checkout.php" class="btn-cart">Add to Cart</a> <a href="checkout.php" class="btn-wish">Add to Wishlist</a>
-						</li>
+						</li> -->
+						
 					</ul>
 				</div>
 				<div class="footer">

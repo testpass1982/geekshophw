@@ -21,6 +21,12 @@ content = {
     'new_products': new_products,
 }
 
+mens_content = {
+    'links_menu' : links_menu,
+    'title': 'mens',
+    'products' : Product.objects.all(),
+}
+
 # Create your views here.
 def index(request):
     return HttpResponse("Hello, this is mainapp index")
@@ -32,7 +38,7 @@ def checkout(request):
     return render(request, 'mainapp/checkout.html', content)
     
 def mens(request):
-    return render(request, 'mainapp/mens.html', content)
+    return render(request, 'mainapp/mens.html', mens_content)
     
 def womens(request):
     return render(request, 'mainapp/womens.html', content)
