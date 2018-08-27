@@ -9,10 +9,15 @@ class ProductCategory(models.Model):
     def __str__(self):
             return self.name
 
+class Manufacturer(models.Model):
+    name = models.CharField(max_length=70, help_text="Use short name if possible", unique=True)
+    def __str__(self):
+        return self.name
+
 class Product(models.Model):
     category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
     title = models.CharField(max_length=150)
-    manufacturer = models.ManyToManyField("Manufacturer", related_name="products")
+    manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
     size = models.IntegerField(default=0)
     date_added = models.DateTimeField(blank=True, null=True)
     image = models.ImageField(upload_to='products_images', blank=True)
@@ -21,8 +26,3 @@ class Product(models.Model):
     def __str__(self):
         return "{} ({})".format(self.title, self.category.name)
 
-class Manufacturer(models.Model):
-    name = models.CharField(max_length=70, help_text="Use short name if possible", unique=True)
-
-    def __str__(self):
-        return self.name
