@@ -1,0 +1,11 @@
+{
+    "new_category1": {
+        "name": "For winter",
+        "description": "nice leather boots for cold"
+    },
+    "new_category2":
+    {
+        "name": "For summer",
+        "description" : "you will be happy in this leather summer shoes"
+    }
+}

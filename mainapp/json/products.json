@@ -1,0 +1,11 @@
+{
+    "new_product1": {
+        "category": "For winter",
+        "title" : "RubberFour"
+    },
+    "new_product2": {
+        "category": "For summer",
+        "title": "RubberFive"
+    }
+
+}
