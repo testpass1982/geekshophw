@@ -3,8 +3,9 @@
 {%block content %}
 			<div class="welcome">
 			<h2>Welcome to our rubbernlaces e-shop, 
-				{% if user.first_name %} 
-					{{ user.first_name }} 
+				{% if user.is_authenticated %} 
+					<a href ="{% url 'auth:edit' %}">{{ user.first_name }} </a>
+					
 				{% else %} Dear Guest! 
 				{%endif%} </h2>
 		
