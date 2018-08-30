@@ -10,11 +10,11 @@
 				{%endif%} </h2>
 		
 			Today is {% now "jS F Y H:i" %} <br>
-			New products in our catalog: <br>
+			<!-- New products in our catalog: <br>
 		
 			{% for key, value in new_products.items %}
 				<li>{{key}} : <a href="#"> {{ value.name }}</a> by {{value.manufacturer}}, for only {{value.price}}</li>
-			{% endfor %}
+			{% endfor %} -->
 
 			<p>
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
@@ -56,21 +56,16 @@
 					<img src="/static/images/shop-now.jpg" height="355" width="618" alt="Promo"> <a href="/" class="button"></a> <span></span>
 				</div>
 				<div id="main">
-					<div id="featured">
-						<h4><span>Featured Items</span></h4>
-						<ul class="items">
-							<li>
-								<a href="/product"> <img src="/static/images/leather-boots.jpg" alt="Img"> <span>$19.50</span> Cheverlyn Zespax </a>
-							</li>
-							<li>
-								<a href="/product"> <img src="/static/images/leather-boots.jpg" alt="Img"> <span>$19.50</span> Cheverlyn Zespax </a>
-							</li>
-							<li>
-								<a href="/product"> <img src="/static/images/leather-boots.jpg" alt="Img"> <span>$19.50</span> Cheverlyn Zespax </a>
-							</li>
-							<li>
-								<a href="/product"> <img src="/static/images/leather-boots.jpg" alt="Img"> <span>$19.50</span> Cheverlyn Zespax </a>
-							</li>
+					<div id="stocks">
+						<h4><span>Products we sell</span></h4>
+
+						<ul>
+								{% for product in products %}
+								<li>
+									<a href="#" class='preview' title='Preview'> <img src='/media/{{ product.image }}' alt='{{product.title}}'> <span class="icon"></span></a> <span>$8.50</span> {{product.title}} <em>Quick Shop</em> <a href="checkout.php" class="btn-cart">Add to Cart</a> <a href="checkout.php" class="btn-wish">Add to Wishlist</a>
+									</a>
+								</li>
+								{% endfor %}
 						</ul>
 					</div>
 					<div id="sale">

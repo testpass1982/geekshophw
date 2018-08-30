@@ -9,7 +9,10 @@
 						<li>
 						<!-- <h3> {{ product.category.name }}</h3>
 						<h2> {{ product.title }}</h2>	 -->
-							<a href="#" class='preview' title='Preview'> <img src='/media/{{ product.image }}' alt='{{product.title}}'> <span class="icon"></span></a> <span>$8.50</span> {{product.title}} <em>Quick Shop</em> <a href="checkout.php" class="btn-cart">Add to Cart</a> <a href="checkout.php" class="btn-wish">Add to Wishlist</a>
+							<a href="#" class='preview' title='Preview'> <img src='/media/{{ product.image }}' 
+								alt='{{product.title}}'> <span class="icon"></span></a> <span>$8.50</span> {{product.title}} 
+								<em>Quick Shop</em> <a href="{% url 'basket:add' product.pk %}" class="btn-cart">Add to Cart</a> 
+								<a href="#" class="btn-wish">Add to Wishlist</a>
 							</a>
 						</li>
 							{% endfor %}

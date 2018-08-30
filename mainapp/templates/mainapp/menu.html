@@ -8,7 +8,7 @@
     </ul> 
     <ul id="secondary">
         <li>
-            <a href="/checkout">Cart</a>
+            <a href="{% url 'basket:view' %}">Cart {% if basket %}({{ basket|length }}){% endif %})</a>
         </li>
         <li>
             <a href="{% url 'auth:login' %}">Login</a> | <a href="{% url 'auth:register' %}">Signup</a>

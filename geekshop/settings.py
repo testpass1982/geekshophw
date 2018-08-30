@@ -34,13 +34,13 @@ AUTH_USER_MODEL = 'authapp.ShopUser'
 INSTALLED_APPS = [
     'authapp',
     'mainapp',
+    'basketapp',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'reset_migrations',
     
 ]
 

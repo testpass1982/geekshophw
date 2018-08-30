@@ -11,8 +11,8 @@ from faker import Faker
 
 fakegen = Faker()
 
-categories = ['Winter', 'Summer', 'Sports', 'Kids', 'Outdoor']
-manufacts = ['Adidas', 'RubbernLeather', 'Reebok', 'Nike']
+categories = ['Mens', 'Womens']
+manufacts = ['Adidas', 'RubbernLeather', 'Reebok', 'Nike', 'RubberInc', 'Shoesnboots']
 def add_category():
     c = ProductCategory.objects.get_or_create(name=random.choice(categories))[0]
     c.save()

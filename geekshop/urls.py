@@ -18,11 +18,12 @@ from django.urls import include, path, re_path
 from django.conf import settings
 from django.conf.urls.static import static
 import mainapp.views as mainapp
+from mainapp.models import ProductCategory
 
 urlpatterns = [
     path('', mainapp.main, name='main'),
-    path('mens/', mainapp.mens, name='mens'),
-    path('womens/', mainapp.womens, name='womens'),
+    # path('mens/', mainapp.mens, name='mens'),
+    # path('womens/', mainapp.womens, name='womens'),
     path('sale/', mainapp.sale, name='sale'),
     path('product/', mainapp.product, name='product'),
     path('new/', mainapp.new, name='new'),
@@ -30,6 +31,8 @@ urlpatterns = [
     path('checkout/', mainapp.checkout, name='checkout'),
     path('admin/', admin.site.urls),
     re_path(r'^auth/', include('authapp.urls', namespace='auth')),
+    re_path(r'^products/', include('mainapp.urls', namespace='products')),
+    re_path(r'^basket/', include('basketapp.urls', namespace='basket')),
 ]
 if settings.DEBUG:
     urlpatterns +=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
