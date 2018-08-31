@@ -65,17 +65,30 @@ def checkout(request):
 
 def products(request, pk=None):
     print(pk)
-    # categories = ProductCategory.objects.all()
-    # return HttpResponse('Hey, {}'.format(categories[0]))
-    category = ProductCategory.objects.filter(pk=pk)
-    products = Product.objects.filter(category__pk=pk)
+    title = 'All products'
+    if pk:
+        if pk == '0':
+            products = Product.objects.all()
+            category = 'all'   
+        else:
+            category = get_object_or_404(ProductCategory, pk=pk)
+            products = Product.objects.filter(category__pk=pk)
+        
+        category = ProductCategory.objects.filter(pk=pk)
+        content = {
+            'title': category,
+            'products': products,
+            'links_menu': links_menu,
+        }
+        return render(request, 'mainapp/products.html', content)
+    
+    same_products = Product.objects.all()[3:5]
     content = {
-        'title': category[0],
-        'products': products,
+        'title': title,
+        'products': same_products,
         'links_menu': links_menu,
     }
     return render(request, 'mainapp/products.html', content)
-
     
 def new(request):
     return render(request, 'mainapp/new.html', content)
