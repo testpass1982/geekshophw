@@ -15,13 +15,13 @@ links_menu = [
     {'href': 'sale', 'name':'sale items'},
 ]
 
-# def category_to_menu_dict (c):
-#     return {'href': c, 'name': c}
+def category_to_menu_dict (category_pk, category_name):
+    return {'pk': category_pk, 'name': category_name}
 
-# menu_category_start = 1
-# for category in ProductCategory.objects.all():
-#     links_menu.insert(menu_category_start, category_to_menu_dict(category.name.lower()))
-#     menu_category_start+=1
+menu_category_start = 1
+for category in ProductCategory.objects.all():
+    links_menu.insert(menu_category_start, category_to_menu_dict(category.pk, category.name.lower()))
+    menu_category_start+=1
 
 content = {
     'products': Product.objects.all(),
@@ -30,20 +30,8 @@ content = {
 }
 
 print(links_menu)
-print("****************")
+print("**********************************************************")
 print(content)
-
-# mens_content = {
-#     'links_menu' : links_menu,
-#     'title': 'mens',
-#     'products' : Product.objects.all().filter(category__name='Mens'),
-# }
-
-# womans_content = {
-#     'links_menu' : links_menu,
-#     'title': 'womens',
-#     'products' : Product.objects.all().filter(category__name='Womens'),
-# }
 
 # Create your views here.
 
@@ -55,7 +43,11 @@ def index(request):
     return HttpResponse("Hello, this is mainapp index")
 
 def main(request):
-   return render(request, 'mainapp/index.html', content)
+    basket = []
+    if request.user.is_authenticated:
+        basket = Basket.objects.filter(user=request.user)
+        content['basket'] = basket
+    return render(request, 'mainapp/index.html', content)
     
 def checkout(request):
     return render(request, 'mainapp/checkout.html', content)
@@ -64,6 +56,12 @@ def checkout(request):
 #     return render(request, 'mainapp/products.html', mens_content)
 
 def products(request, pk=None):
+    basket = []
+    if request.user.is_authenticated:
+        basket = Basket.objects.filter(user=request.user)
+    print(basket)
+    print('len of basket', len(basket))
+    print("BASKET ***********************")
     print(pk)
     title = 'All products'
     if pk:
@@ -79,6 +77,7 @@ def products(request, pk=None):
             'title': category,
             'products': products,
             'links_menu': links_menu,
+            'basket': basket,
         }
         return render(request, 'mainapp/products.html', content)
     
@@ -87,6 +86,7 @@ def products(request, pk=None):
         'title': title,
         'products': same_products,
         'links_menu': links_menu,
+        'basket': basket,
     }
     return render(request, 'mainapp/products.html', content)
     
