@@ -63,16 +63,19 @@ def checkout(request):
 # def mens(request):
 #     return render(request, 'mainapp/products.html', mens_content)
 
-def products(request, category=None):
-    print(category)
-    title = 'All products'
-
-        # if category == ''
-        
+def products(request, pk=None):
+    print(pk)
+    # categories = ProductCategory.objects.all()
+    # return HttpResponse('Hey, {}'.format(categories[0]))
+    category = ProductCategory.objects.filter(pk=pk)
+    products = Product.objects.filter(category__pk=pk)
+    content = {
+        'title': category[0],
+        'products': products,
+        'links_menu': links_menu,
+    }
     return render(request, 'mainapp/products.html', content)
 
-# def womens(request):
-#     return render(request, 'mainapp/products.html', womans_content)
     
 def new(request):
     return render(request, 'mainapp/new.html', content)
