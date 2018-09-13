@@ -4,6 +4,12 @@
 			<div id="contents">
 				<div id="checkout">
 					<h4><span>Checkout</span></h4>
+					Dear {{ user.first_name|title }}, 
+					Items in your basket: {{ basket.0.quantity }}, <br>
+					You've ordered:
+						{% for item in basket %}
+						{{ item.product.title }}, size: {{item.product.size}}
+						{% endfor %}
 					<table>
 						<thead>
 							<tr>
