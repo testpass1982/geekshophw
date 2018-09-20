@@ -23,7 +23,17 @@
             </a>
         </li>
         <li>
+            {% if user.is_authenticated %}
+            <div class="dropdown">
+                    <a href="#" id="profile-link">User</a>
+                    <div id="myDropdown" class="dropdown-content">
+                        <a href="#">Profile</a>
+                        <a href="#">Orders</a>
+                    </div>
+                    </div>
+            {% else %}
             <a href="{% url 'auth:login' %}">Login</a> | <a href="{% url 'auth:register' %}">Signup</a>
+            {% endif %}
         </li>
     </ul>
     

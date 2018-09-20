@@ -644,3 +644,18 @@ ul.items li a span {
 .user_avatar {
 	height: 100px;
 }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	left: -20px;
+	background-color: #B8DCDD;
+	padding: 10px 20px;
+	box-shadow: 5px 5px #757a8567;
+
+}
