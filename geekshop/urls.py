@@ -34,6 +34,7 @@ urlpatterns = [
     re_path(r'^products/', include('mainapp.urls', namespace='products')),
     re_path(r'^basket/', include('basketapp.urls', namespace='basket')),
     re_path(r'^auth/verify/google/oauth2/', include("social_django.urls", namespace="social")),
+    re_path(r'^order/', include('ordersapp.urls', namespace='order')),
 ]
 if settings.DEBUG:
     urlpatterns +=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
