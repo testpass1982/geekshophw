@@ -27,8 +27,8 @@
             <div class="dropdown">
                     <a href="#" id="profile-link">User</a>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="#">Profile</a>
-                        <a href="#">Orders</a>
+                        <a href="{% url 'auth:edit' %}">Profile</a>
+                        <a href="{% url 'ordersapp:orders_list' %}">Orders</a>
                     </div>
                     </div>
             {% else %}
