@@ -379,6 +379,7 @@ ul.items li a span {
 #checkout table tr td img {
 	float: left;
 	margin: 18px 18px 18px 40px;
+	width: 80px;
 }
 #checkout table tr td b {
 	display: block;

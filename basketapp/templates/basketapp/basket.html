@@ -4,73 +4,7 @@
 			<div id="contents">
 				<div id="checkout">
 					<h4><span>Checkout</span></h4>
-					Dear {{ user.first_name|title }}, 
-					Items in your basket: {{ basket.0.quantity }}, <br>
-					You've ordered:
-						{% for item in basket %}
-						{{ item.product.title }}, size: {{item.product.size}}
-						{% endfor %}
-					<table>
-						<thead>
-							<tr>
-								<th>Order no. 0017893547</th>
-								<th>Quantity</th>
-								<th>Size</th>
-								<th>Price</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><img src="/static/images/leather-boots3.jpg" alt="Thumbnail"> <b>Hukbalahap Boots</b>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam venenatis cursus gravida. Suspendisse ut ligula tristique velit blandit blandit vel sit amet ipsum. Nam accumsan turpid id mauris fermentum
-									</p></td>
-								<td><a href="checkout.html" class="minus"></a> <a href="checkout.html" class="plus"></a>
-									<input type="text" value="1" class="txtfield"></td>
-								<td><a href="checkout.html" class="minus"></a> <a href="checkout.html" class="plus"></a>
-									<input type="text" value="7.5" class="txtfield"></td>
-								<td class="last"><div>
-										$8.50 <a href="checkout.html">Delete</a>
-									</div></td>
-							</tr> <tr>
-								<td><img src="/static/images/leather-boots3.jpg" alt="Thumbnail"> <b>Hukbalahap Boots</b>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam venenatis cursus gravida. Suspendisse ut ligula tristique velit blandit blandit vel sit amet ipsum. Nam accumsan turpid id mauris fermentum
-									</p></td>
-								<td><a href="checkout.html" class="minus"></a> <a href="checkout.html" class="plus"></a>
-									<input type="text" value="1" class="txtfield"></td>
-								<td><a href="checkout.html" class="minus"></a> <a href="checkout.html" class="plus"></a>
-									<input type="text" value="7.5" class="txtfield"></td>
-								<td class="last"><div>
-										$8.50 <a href="checkout.html">Delete</a>
-									</div></td>
-							</tr> <tr>
-								<td><img src="/static/images/leather-boots3.jpg" alt="Thumbnail"> <b>Hukbalahap Boots</b>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam venenatis cursus gravida. Suspendisse ut ligula tristique velit blandit blandit vel sit amet ipsum. Nam accumsan turpid id mauris fermentum
-									</p></td>
-								<td><a href="checkout.html" class="minus"></a> <a href="checkout.html" class="plus"></a>
-									<input type="text" value="1" class="txtfield"></td>
-								<td><a href="checkout.html" class="minus"></a> <a href="checkout.html" class="plus"></a>
-									<input type="text" value="7.5" class="txtfield"></td>
-								<td class="last"><div>
-										$8.50 <a href="checkout.html">Delete</a>
-									</div></td>
-							</tr> <tr>
-								<td><img src="/static/images/leather-boots3.jpg" alt="Thumbnail"> <b>Hukbalahap Boots</b>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam venenatis cursus gravida. Suspendisse ut ligula tristique velit blandit blandit vel sit amet ipsum. Nam accumsan turpid id mauris fermentum
-									</p></td>
-								<td><a href="checkout.html" class="minus"></a> <a href="checkout.html" class="plus"></a>
-									<input type="text" value="1" class="txtfield"></td>
-								<td><a href="checkout.html" class="minus"></a> <a href="checkout.html" class="plus"></a>
-									<input type="text" value="7.5" class="txtfield"></td>
-								<td class="last"><div>
-										$8.50 <a href="checkout.html">Delete</a>
-									</div></td>
-							</tr>
-						</tbody>
-					</table>
+				{% include 'basketapp/includes/inc_basket_list.html' %}
 					<a href="checkout.html" class="proceed-btn">Proceed to Checkout</a>
 				</div>
 			</div>

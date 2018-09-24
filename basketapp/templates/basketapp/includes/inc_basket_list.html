@@ -1,0 +1,27 @@
+<table>
+    <thead>
+        <tr>
+            <th>Products in basket: {{basket.0.total_quantity}} for {{ basket.0.total_cost }}$</th>
+            <th>Quantity</th>
+            <th>Size</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in basket %}
+        <tr>
+            <td><img src="/media/{{item.product.image}}" alt="{{ item.product.title }}"> <b>{{ item.product.title }}</b>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam venenatis cursus gravida. Suspendisse ut ligula tristique velit blandit blandit vel sit amet ipsum. Nam accumsan turpid id mauris fermentum
+                </p></td>
+            <td><a href="checkout.html" class="minus"></a> <a href="checkout.html" class="plus"></a>
+                <input type="number" name = "{{ item.pk }}" min="0" value="{{ item.product.quantity }}" class="txtfield"></td>
+            <td><a href="checkout.html" class="minus"></a> <a href="checkout.html" class="plus"></a>
+                <input type="number" value="{{item.product.size}}" class="txtfield"></td>
+            <td class="last"><div>
+                    ${{ item.product.price }} <a href="{% url 'basket:remove' item.pk %}">Delete</a>
+                </div></td>
+        </tr> 
+        {% endfor %}
+    </tbody>
+</table>
