@@ -18,7 +18,8 @@
         <li>
             <a href="{% url 'basket:view' %}">
                 Cart {% if basket %}
-                ({{ basket|length }})
+                ({{ basket.0.total_cost | floatformat:0 }}$ for
+                {{ basket.0.total_quantity }} items)
                 {% endif %}
             </a>
         </li>
