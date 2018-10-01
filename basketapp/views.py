@@ -29,7 +29,6 @@ def basket(request):
         return _totalcost
 
     total_cost = property(_get_total_cost)
-
     content = { 'title': 'basket',
                 'links_menu': links_menu,
                 'product_cost': product_cost,                

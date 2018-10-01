@@ -11,6 +11,9 @@ with open('static/new_products.json', 'r', encoding='UTF-8') as p:
 
 links_menu = [
     {'href': 'main', 'name':'home'},
+    # {'href': '/mens', 'name':'mens'},
+    # {'href': '/womens', 'name':'womens'},
+    # {'href': '/kids', 'name':'kids'},
     {'href': 'faq', 'name':'faq'},
     {'href': 'sale', 'name':'sale items'},
 ]
@@ -70,7 +73,8 @@ def products(request, pk=None):
             category = 'all'   
         else:
             category = get_object_or_404(ProductCategory, pk=pk)
-            products = Product.objects.filter(category__pk=pk)
+            products = Product.objects.filter(category__pk=pk).select_related('category')[:3]
+            print(products.query)
         
         category = ProductCategory.objects.filter(pk=pk)
         content = {
@@ -82,6 +86,7 @@ def products(request, pk=None):
         return render(request, 'mainapp/products.html', content)
     
     same_products = Product.objects.all()[3:5]
+
     content = {
         'title': title,
         'products': same_products,
