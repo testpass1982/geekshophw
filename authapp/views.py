@@ -63,9 +63,9 @@ def send_verify_mail(user):
     verify_link = reverse(
         'auth:verify', 
         args=[user.email, user.activation_key])
-    title = f'Подтверждение учетной записи {user.username}'
+    title = 'Подтверждение учетной записи {}'.format(user.username)
 
-    message = f'Для подтверждения учетной записи {user.username} на портале {settings.DOMAIN_NAME} перейдите по ссылке {settings.DOMAIN_NAME}{verify_link}'
+    message = 'Для подтверждения учетной записи {} на портале {} перейдите по ссылке {}{}'.format(user.username, settings.DOMAIN_NAME, settings.DOMAIN_NAME, verify_link)
 
     return send_mail(
         title, 
@@ -84,10 +84,10 @@ def verify(request, email, activation_key):
             auth.login(request, user, backend='django.contrib.auth.backends.ModelBackend')
             return render (request, 'authapp/verification.html')
         else:
-            print(f'error activation user: {user}')
+            print('error activation user: {}'.format(user))
             return render(request, 'authapp/verification.html')
     except Exception as e:
-        print(f'error activation user: {e.args}')
+        print('error activation user: {}'.format(e.args))
     return HttpResponseRedirect(reverse('main'))
 
 @transaction.atomic
