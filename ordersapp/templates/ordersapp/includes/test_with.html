@@ -1,0 +1,26 @@
+{% with object_summary=object.get_summary %}
+<div class="h4">
+    Общее количество товаров ("with obj_summary"): <span class="order_total_quantity">
+        {{ object_summary.total_quantity }}
+    </span> штук
+</div>
+<div class="h3">
+    Общая стоимость товаров ("with obj_summary"): <span class="order_total_cost">
+        {{ object_summary.total_cost }}
+    </span> рублей
+</div>
+{% endwith %}
+
+
+
+
+
+
+
+<div class="h4">
+    общее количество товаров: <span class="order_total_quantity">{{ object.get_total_quantity }}</span>
+</div>
+<div class="h3">
+    общая стоимость: <span class="order_total_cost">{{ object.get_total_cost }}</span> руб
+</div>
+<hr>
