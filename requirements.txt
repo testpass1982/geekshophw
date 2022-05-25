@@ -17,7 +17,7 @@ oauthlib==2.1.0
 Pillow==5.2.0
 pip-tools==3.0.0
 pydotplus==2.0.2
-PyJWT==1.6.4
+PyJWT==2.4.0
 pylint==2.1.1
 pyparsing==2.2.2
 python3-openid==3.1.0
